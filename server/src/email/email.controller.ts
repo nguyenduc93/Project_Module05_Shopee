@@ -9,4 +9,9 @@ export class EmailController {
   sendEmail(@Body('email') email: string, @Res() res: Response) {
     return this.emailService.sendEmail(email, res);
   }
+
+  @Post("/lock-shop")
+  sendEmailShop(@Body('email') email: string, @Res() res: Response) {
+    return this.emailService.sendEmailShop(email, res);
+  }
 }

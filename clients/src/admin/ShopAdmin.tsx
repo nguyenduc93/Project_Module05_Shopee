@@ -49,18 +49,27 @@ const ShopAdmin = () => {
           statusStore,
         }
       );
+      let email = response.data.emailStore;
       if (response.status === 200) {
-        notification.success({
-          message: "Cửa hàng đã được khóa!",
-          placement: "top",
-          duration: 2,
-        });
+        try {
+          await axios.post(`http://localhost:8000/send-email/lock-shop`, {
+            email,
+          });
+          notification.success({
+            message: "Cửa hàng đã được khóa!",
+            placement: "top",
+            duration: 2,
+          });
+        } catch (error) {
+          console.log(error);
+        }
         getStores();
       }
     } catch (error) {
       console.log(error);
     }
   };
+
   //   Mở khóa cửa hàng
   const handleUnLock = async (id: string) => {
     let statusStore = 1;
