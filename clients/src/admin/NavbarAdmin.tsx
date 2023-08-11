@@ -1,13 +1,18 @@
 import { NavLink } from "react-router-dom";
 import "../shop/Shopuser.css";
+import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import StorefrontIcon from "@mui/icons-material/Storefront";
+import CardMembershipOutlinedIcon from "@mui/icons-material/CardMembershipOutlined";
+import AccountBoxOutlinedIcon from "@mui/icons-material/AccountBoxOutlined";
 const NavbarAdmin = () => {
   return (
     <div>
       <div className="shop_left shop_left1">
         <div style={{ paddingTop: 30 }}>
-          <div className="option_shop">
+          <div className="option_shop" style={{ alignItems: "center" }}>
             <div className="option_shop1" style={{ marginRight: 10 }}>
-              <img src="../assets/shop/2.png" alt="" width={20} />
+              <AccountBoxOutlinedIcon style={{ color: "#757575" }} />
             </div>
             <div>
               <NavLink to={"/admin/users"} style={{ textDecoration: "none" }}>
@@ -16,9 +21,9 @@ const NavbarAdmin = () => {
               </NavLink>
             </div>
           </div>
-          <div className="option_shop">
+          <div className="option_shop" style={{ alignItems: "center" }}>
             <div className="option_shop1" style={{ marginRight: 10 }}>
-              <img src="../assets/shop/1.png" alt="" width={20} />
+              <CardMembershipOutlinedIcon style={{ color: "#757575" }} />
             </div>
             <div>
               <NavLink
@@ -30,9 +35,9 @@ const NavbarAdmin = () => {
               </NavLink>
             </div>
           </div>
-          <div className="option_shop">
+          <div className="option_shop" style={{ alignItems: "center" }}>
             <div className="option_shop1" style={{ marginRight: 10 }}>
-              <img src="../assets/shop/3.png" alt="" width={20} />
+              <StorefrontIcon style={{ color: "#757575" }} />
             </div>
             <div>
               <NavLink to={"/admin/shop"} style={{ textDecoration: "none" }}>
@@ -40,23 +45,29 @@ const NavbarAdmin = () => {
               </NavLink>
             </div>
           </div>
-          <div className="option_shop">
+          <div className="option_shop" style={{ alignItems: "center" }}>
             <div className="option_shop1" style={{ marginRight: 10 }}>
-              <img src="../assets/shop/3.png" alt="" width={20} />
+              <LocalShippingOutlinedIcon style={{ color: "#757575" }} />
             </div>
             <div>
-              <NavLink to={"/admin/shop"} style={{ textDecoration: "none" }}>
+              <NavLink
+                to={"/admin/delivery"}
+                style={{ textDecoration: "none" }}
+              >
                 <h4>Đơn Vị Vận Chuyển</h4>
               </NavLink>
             </div>
           </div>
-          <div className="option_shop">
+          <div className="option_shop" style={{ alignItems: "center" }}>
             <div className="option_shop1" style={{ marginRight: 10 }}>
-              <img src="../assets/shop/3.png" alt="" width={20} />
+              <AccountBalanceIcon style={{ color: "#757575" }} />
             </div>
             <div>
-              <NavLink to={"/admin/shop"} style={{ textDecoration: "none" }}>
-                <h4>Quản Lý Shop</h4>
+              <NavLink
+                to={"/admin/marketing"}
+                style={{ textDecoration: "none" }}
+              >
+                <h4>Kênh Marketing</h4>
               </NavLink>
             </div>
           </div>
