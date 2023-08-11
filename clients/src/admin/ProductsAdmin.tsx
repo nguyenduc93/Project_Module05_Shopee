@@ -1,4 +1,4 @@
-import { Avatar, notification } from "antd";
+import { Avatar, Pagination, notification } from "antd";
 import HeaderAdmin from "./HeaderAdmin";
 import NavbarAdmin from "./NavbarAdmin";
 import axios from "axios";
@@ -8,6 +8,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import SearchIcon from "@mui/icons-material/Search";
+import privateAxios from "../configAxios/privateAxios";
 
 type Product = {
   avatarUrl: string;
@@ -36,12 +37,24 @@ const ProductsAdmin = () => {
     }
   }, [flaguser]);
 
+  // Phân trang
+  const shopsPerPage = 2;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  const startShopIndex = (currentPage - 1) * shopsPerPage;
+  const visibleShops = Object.keys(groupedOrders).slice(
+    startShopIndex,
+    startShopIndex + shopsPerPage
+  );
+
   // Lấy tất cả sản phẩm
   const getProducts = async () => {
     try {
-      let response = await axios.get(
-        `http://localhost:8000/products/get/admin`
-      );
+      let response = await privateAxios.get(`/products/get/admin`);
 
       setProducts(response.data);
       const groupedData = response.data.reduce(
@@ -168,7 +181,7 @@ const ProductsAdmin = () => {
             <div className="active_order10">Hành động</div>
           </div>
 
-          {Object.keys(groupedOrders).map((storeId) => (
+          {visibleShops.map((storeId) => (
             <div className="order_table1" key={storeId}>
               <div className="order_name">
                 <Avatar
@@ -241,6 +254,13 @@ const ProductsAdmin = () => {
               ))}
             </div>
           ))}
+          <Pagination
+            current={currentPage}
+            pageSize={shopsPerPage}
+            total={Object.keys(groupedOrders).length}
+            onChange={handlePageChange}
+            style={{ paddingBottom: 50, paddingTop: 20, marginLeft: "35%" }}
+          />
         </div>
       </div>
     </div>

@@ -41,41 +41,41 @@ export class UsersService {
   }
 
     // Đăng nhập
-    async login(createUserDto: CreateUserDto, @Res() res: Response){
-      try {
-        const existingUser = await this.entityManager.findOne(Users, { where: { userName: createUserDto.userName } });
-        if(existingUser=== null){
-          return res.json({
-            status: 201,
-            message: "Tài khoản không tồn tại!"
-          });
-        }else{
-          bcrypt.compare(createUserDto.password, existingUser.password, (err, isMatch) => {
-            if (err) {
-              return res.status(500).json({
-                status: 500,
-                message: err,
-              });
-            }else {
-              if (!isMatch) {
-                res.status(401).json({
-                  status: 401,
-                  message: "Mật khẩu không chính xác!",
-                });
-              } else {
-                res.status(200).json({
-                  status: 200,
-                  message: "Đăng nhập thành công!",
-                  data: existingUser,
-                });
-              }
-            }
-          })
-        }
-      } catch (error) {
-        throw new BadRequestException(error.message);
-      }
-    }
+    // async login(createUserDto: CreateUserDto, @Res() res: Response){
+    //   try {
+    //     const existingUser = await this.entityManager.findOne(Users, { where: { userName: createUserDto.userName } });
+    //     if(existingUser=== null){
+    //       return res.json({
+    //         status: 201,
+    //         message: "Tài khoản không tồn tại!"
+    //       });
+    //     }else{
+    //       bcrypt.compare(createUserDto.password, existingUser.password, (err, isMatch) => {
+    //         if (err) {
+    //           return res.status(500).json({
+    //             status: 500,
+    //             message: err,
+    //           });
+    //         }else {
+    //           if (!isMatch) {
+    //             res.status(401).json({
+    //               status: 401,
+    //               message: "Mật khẩu không chính xác!",
+    //             });
+    //           } else {
+    //             res.status(200).json({
+    //               status: 200,
+    //               message: "Đăng nhập thành công!",
+    //               data: existingUser,
+    //             });
+    //           }
+    //         }
+    //       })
+    //     }
+    //   } catch (error) {
+    //     throw new BadRequestException(error.message);
+    //   }
+    // }
 
     // Cập nhật avatar
     async updateAvatar(@Param("id") userId: string, avatarDto: AvatarUserDto, @Res() res: Response ){

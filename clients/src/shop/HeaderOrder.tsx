@@ -14,6 +14,7 @@ const HeaderOrder = () => {
   const navigate = useNavigate();
   const handleButton = () => {
     localStorage.removeItem("user");
+    localStorage.removeItem("token");
     navigate("/dangnhap");
   };
 

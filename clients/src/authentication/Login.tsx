@@ -3,8 +3,9 @@ import Footer from "../footer/Footer";
 import "./authentication.css";
 import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import { MouseEvent, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { notification } from "antd";
+import privateAxios from "../configAxios/privateAxios";
 const Login: React.FC = () => {
   const [userName, setUserName] = useState("");
   const [passwordUser, setPassword] = useState("");
@@ -13,7 +14,7 @@ const Login: React.FC = () => {
   const handleButton = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8000/users/login", {
+      const response = await privateAxios.post("/auth/login", {
         userName,
         password: passwordUser,
       });
@@ -39,6 +40,10 @@ const Login: React.FC = () => {
             }
           }, 1000);
           localStorage.setItem("user", JSON.stringify(response.data.data));
+          localStorage.setItem(
+            "token",
+            JSON.stringify(response.data.access_token)
+          );
         }
       } else {
         notification.error({

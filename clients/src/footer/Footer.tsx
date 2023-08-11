@@ -1,41 +1,38 @@
-import { useState } from "react";
 import "./Footer.css";
-import { notification } from "antd";
-import axios from "axios";
 const Footer = () => {
-  const [email, setEmail] = useState("");
-  const isValidEmail = (email: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-  const handleEmail = async () => {
-    if (!isValidEmail(email)) {
-      // Xử lý khi email không hợp lệ
-      notification.error({
-        message: "Email không hợp lệ",
-        style: {
-          top: 95,
-        },
-      });
-      return;
-    }
-    try {
-      const response = await axios.post("http://localhost:8000/send-email", {
-        email,
-      });
-      setEmail("");
-      if (response.status === 200) {
-        notification.success({
-          message: "Hãy kiểm tra email của bạn",
-          style: {
-            top: 95,
-          },
-        });
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const [email, setEmail] = useState("");
+  // const isValidEmail = (email: string) => {
+  //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  //   return emailRegex.test(email);
+  // };
+  // const handleEmail = async () => {
+  //   if (!isValidEmail(email)) {
+  //     // Xử lý khi email không hợp lệ
+  //     notification.error({
+  //       message: "Email không hợp lệ",
+  //       style: {
+  //         top: 95,
+  //       },
+  //     });
+  //     return;
+  //   }
+  //   try {
+  //     const response = await axios.post("http://localhost:8000/send-email", {
+  //       email,
+  //     });
+  //     setEmail("");
+  //     if (response.status === 200) {
+  //       notification.success({
+  //         message: "Hãy kiểm tra email của bạn",
+  //         style: {
+  //           top: 95,
+  //         },
+  //       });
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
   return (
     <div>
       <footer className="footer">
@@ -371,8 +368,8 @@ const Footer = () => {
                 </p>
               </div>
             </div>
-            <input type="email" onChange={(e) => setEmail(e.target.value)} />
-            <button onClick={handleEmail}>123</button>
+            {/* <input type="email" onChange={(e) => setEmail(e.target.value)} />
+            <button onClick={handleEmail}>123</button> */}
           </div>
         </div>
       </footer>

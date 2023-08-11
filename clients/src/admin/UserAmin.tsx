@@ -9,6 +9,7 @@ import { notification } from "antd";
 import { useNavigate } from "react-router-dom";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import SearchIcon from "@mui/icons-material/Search";
+import privateAxios from "../configAxios/privateAxios";
 
 type Users = {
   userName: string;
@@ -33,7 +34,7 @@ const UserAmin = () => {
 
   const getUsers = async () => {
     try {
-      let response = await axios.get("http://localhost:8000/users");
+      let response = await privateAxios.get("/users");
       setUsers(response.data);
     } catch (error) {
       console.log(error);

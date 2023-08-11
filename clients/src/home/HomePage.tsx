@@ -279,7 +279,7 @@ const HomePage = () => {
           pageSize={itemsPerPage}
           total={products.length}
           onChange={handlePageChange}
-          style={{ paddingBottom: 50, paddingTop: 20, marginLeft: "50%" }}
+          style={{ paddingBottom: 50, paddingTop: 20, marginLeft: "45%" }}
         />
         <div className="end"></div>
       </div>

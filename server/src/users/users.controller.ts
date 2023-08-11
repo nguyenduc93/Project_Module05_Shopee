@@ -1,9 +1,11 @@
-import { Body, Controller, Post, Res, UseInterceptors, Put, Param, Get, Query } from '@nestjs/common';
+import { Body, Controller, Post, Res, UseInterceptors, Put, Param, Get, Query, UseGuards } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { AvatarUserDto, CreateUserDto, UserDto } from './dto/create-user.dto';
 import {Response} from "express"
 import { SerializeInterceptor } from 'src/interceptors/Serialize.interceptor';
 import { UpdateStatusUsersDto, UpdateUserDto } from './dto/update-user.dto';
+import { AuthGuard } from 'src/auth/auth.guard';
+import { JwtRolesGuard } from 'src/auth/role.guard';
 
 @Controller('users')
 export class UsersController {
@@ -15,12 +17,12 @@ export class UsersController {
         return await this.usersService.create(body, res)
     }
 
-    // Đăng nhập
-    @UseInterceptors(new SerializeInterceptor(UserDto))
-    @Post("/login")
-    async login(@Body() body: CreateUserDto, @Res() res: Response){
-        return await this.usersService.login(body, res)
-    }
+    // // Đăng nhập
+    // @UseInterceptors(new SerializeInterceptor(UserDto))
+    // @Post("/login")
+    // async login(@Body() body: CreateUserDto, @Res() res: Response){
+    //     return await this.usersService.login(body, res)
+    // }
 
     // Cập nhật avatar
     @Put("avatar/:id")
@@ -35,6 +37,8 @@ export class UsersController {
     }
 
     // Lấy toàn bộ người dùng ở trang admin
+    // @UseGuards(AuthGuard)
+    @UseGuards(AuthGuard,JwtRolesGuard)
     @Get()
     async getAllUser(){
       return await this.usersService.getAllUser()

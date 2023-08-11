@@ -22,6 +22,7 @@ import ProductsAdmin from "./admin/ProductsAdmin";
 import ShopAdmin from "./admin/ShopAdmin";
 import RegisterStore from "./addStore/RegisterStore";
 import AddStores from "./addStore/AddStores";
+import Laptop from "./categories/Laptop";
 
 function App() {
   const location = useLocation();
@@ -42,6 +43,7 @@ function App() {
         <Route path="/phukiendienthoai/:id" element={<Smart />} />
         <Route path="/thoitrangnam/:id" element={<Menfashion />} />
         <Route path="/thoitrangnu/:id" element={<GirlFashion />} />
+        <Route path="/maytinh-laptop/:id" element={<Laptop />} />
         <Route path="/profile" element={<ProfileUser />} />
         <Route path="/donmua" element={<OrderUser />} />
         <Route path="/banhang" element={<ShopUser />} />

@@ -1,8 +1,10 @@
-import { Controller, Body, Post, Res, Param, Get, Put, Query } from '@nestjs/common';
+import { Controller, Body, Post, Res, Param, Get, Put, Query, UseGuards } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { CreateProductsDto, QuantityDto, QuantitySoldDto } from './dto/create-product.dto';
 import { Response } from "express";
 import { UpdateProductsDto, UpdateStatusDto, UpdateStatusProductsDto } from './dto/update-product.dto';
+import { AuthGuard } from 'src/auth/auth.guard';
+import { JwtRolesGuard } from 'src/auth/role.guard';
  
 @Controller('products') 
 export class ProductsController {
@@ -76,6 +78,7 @@ export class ProductsController {
         }
 
         // Lấy tất cả sản phẩm ở admin
+        @UseGuards(AuthGuard,JwtRolesGuard)
         @Get("/get/admin")
         async getAllProducts(){
             return await this.productService.getAllProducts()

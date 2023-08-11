@@ -8,6 +8,7 @@ import { notification } from "antd";
 import { useNavigate } from "react-router-dom";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import SearchIcon from "@mui/icons-material/Search";
+import privateAxios from "../configAxios/privateAxios";
 
 type Stores = {
   storeName: string;
@@ -27,12 +28,11 @@ const ShopAdmin = () => {
     if (flaguser?.statusUser != 1) {
       navigate("/");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flaguser]);
 
   const getStores = async () => {
     try {
-      let response = await axios.get("http://localhost:8000/stores/admin/user");
+      let response = await privateAxios.get("/stores/admin/user");
       setStores(response.data);
     } catch (error) {
       console.log(error);

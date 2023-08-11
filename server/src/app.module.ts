@@ -21,6 +21,7 @@ import { Orders } from './entity/orders.entity';
 import { OrderDetailModule } from './order_detail/order_detail.module';
 import { OrderDetails } from './entity/orderDetail.entity';
 import { EmailModule } from './email/email.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -32,7 +33,7 @@ import { EmailModule } from './email/email.module';
     database: "shopee_typeorm",
     entities: [Users, Stores, Products, Carts, Reviews, Categories, Images, Orders, OrderDetails],
     synchronize: true, 
-  }), UsersModule, StoresModule, ProductsModule, CartsModule, ReviewsModule, CategoriesModule, ImagesModule, OrdersModule, OrderDetailModule, EmailModule],
+  }), UsersModule, StoresModule, ProductsModule, CartsModule, ReviewsModule, CategoriesModule, ImagesModule, OrdersModule, OrderDetailModule, EmailModule, AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })

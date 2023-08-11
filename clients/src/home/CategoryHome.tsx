@@ -47,7 +47,7 @@ const CategoryHome = () => {
           </NavLink>
         </Card.Grid>
         <Card.Grid style={gridStyle}>
-          <NavLink to="/maytinh" style={{ color: "black" }}>
+          <NavLink to="/maytinh-laptop/5" style={{ color: "black" }}>
             <img src="../assets/category/7.png" alt="" height={100} />
             Máy Tính & Laptop
           </NavLink>

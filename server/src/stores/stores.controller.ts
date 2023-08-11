@@ -1,7 +1,9 @@
-import { Body, Controller, Get, Param, Post, Put, Query, Res } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put, Query, Res, UseGuards } from '@nestjs/common';
 import { CreateStoreDto } from './dto/create-store.dto';
 import { StoresService } from './stores.service';
 import {Response} from "express"
+import { AuthGuard } from 'src/auth/auth.guard';
+import { JwtRolesGuard } from 'src/auth/role.guard';
 
 @Controller('stores')
 export class StoresController {
@@ -25,6 +27,7 @@ export class StoresController {
         }
 
         // Lấy tất cả store về admin
+        @UseGuards(AuthGuard,JwtRolesGuard)
         @Get("/admin/user")
         async getAllStores(){
             return await this.storesService.getAllStores()

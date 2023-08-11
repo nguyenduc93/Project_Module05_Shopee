@@ -11,6 +11,7 @@ const Header = () => {
   // Hàm đăng xuất về trang login
   const handleButton = () => {
     localStorage.removeItem("user");
+    localStorage.removeItem("token");
     navigate("/dangnhap");
   };
   return (
