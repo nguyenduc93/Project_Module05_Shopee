@@ -23,6 +23,7 @@ import ShopAdmin from "./admin/ShopAdmin";
 import RegisterStore from "./addStore/RegisterStore";
 import AddStores from "./addStore/AddStores";
 import Laptop from "./categories/Laptop";
+import PrivateRouter from "./privateRouter/PrivateRouter";
 
 function App() {
   const location = useLocation();
@@ -34,9 +35,15 @@ function App() {
   return (
     <div className="app">
       <Routes>
-        <Route path="/admin/users" element={<UserAmin />} />
-        <Route path="/admin/products" element={<ProductsAdmin />} />
-        <Route path="/admin/shop" element={<ShopAdmin />} />
+        <Route path="/admin/users" element={<PrivateRouter />}>
+          <Route path="/admin/users" element={<UserAmin />} />
+        </Route>
+        <Route path="/admin/products" element={<PrivateRouter />}>
+          <Route path="/admin/products" element={<ProductsAdmin />} />
+        </Route>
+        <Route path="/admin/shop" element={<PrivateRouter />}>
+          <Route path="/admin/shop" element={<ShopAdmin />} />
+        </Route>
         <Route path="/" element={<HomePage />} />
         <Route path="dangky" element={<Register />} />
         <Route path="/dangnhap" element={<Login />} />

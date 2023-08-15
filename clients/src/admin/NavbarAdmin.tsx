@@ -15,7 +15,10 @@ const NavbarAdmin = () => {
               <AccountBoxOutlinedIcon style={{ color: "#757575" }} />
             </div>
             <div>
-              <NavLink to={"/admin/users"} style={{ textDecoration: "none" }}>
+              <NavLink
+                to={"/admin/users"}
+                style={{ textDecoration: "none", color: "black" }}
+              >
                 {" "}
                 <h4>Quản Lý Người Dùng</h4>
               </NavLink>
@@ -28,7 +31,7 @@ const NavbarAdmin = () => {
             <div>
               <NavLink
                 to={"/admin/products"}
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", color: "black" }}
               >
                 {" "}
                 <h4>Quản Lý Sản Phẩm</h4>
@@ -40,7 +43,10 @@ const NavbarAdmin = () => {
               <StorefrontIcon style={{ color: "#757575" }} />
             </div>
             <div>
-              <NavLink to={"/admin/shop"} style={{ textDecoration: "none" }}>
+              <NavLink
+                to={"/admin/shop"}
+                style={{ textDecoration: "none", color: "black" }}
+              >
                 <h4>Quản Lý Shop</h4>
               </NavLink>
             </div>
@@ -52,7 +58,7 @@ const NavbarAdmin = () => {
             <div>
               <NavLink
                 to={"/admin/delivery"}
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", color: "black" }}
               >
                 <h4>Đơn Vị Vận Chuyển</h4>
               </NavLink>
@@ -65,7 +71,7 @@ const NavbarAdmin = () => {
             <div>
               <NavLink
                 to={"/admin/marketing"}
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", color: "black" }}
               >
                 <h4>Kênh Marketing</h4>
               </NavLink>

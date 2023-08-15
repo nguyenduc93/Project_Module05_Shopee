@@ -12,6 +12,9 @@ export class OrderDetails {
     quantityOrder: number;
 
     @Column()
+    priceOrder: number;
+
+    @Column()
     orderId: string;
 
     @Column()

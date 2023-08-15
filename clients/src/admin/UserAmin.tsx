@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import { notification } from "antd";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import SearchIcon from "@mui/icons-material/Search";
 import privateAxios from "../configAxios/privateAxios";
@@ -23,14 +23,14 @@ type Users = {
 const UserAmin = () => {
   const [users, setUsers] = useState<Users[]>([]);
   const [search, setSearch] = useState("");
-  const flaguserJSON = localStorage.getItem("user");
-  const flaguser = flaguserJSON ? JSON.parse(flaguserJSON) : null;
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (flaguser?.statusUser != 1) {
-      navigate("/");
-    }
-  }, [flaguser]);
+  // const flaguserJSON = localStorage.getItem("user");
+  // const flaguser = flaguserJSON ? JSON.parse(flaguserJSON) : null;
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   if (flaguser?.statusUser != 1) {
+  //     navigate("/");
+  //   }
+  // }, [flaguser]);
 
   const getUsers = async () => {
     try {

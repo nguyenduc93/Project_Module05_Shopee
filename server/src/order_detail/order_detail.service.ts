@@ -13,6 +13,7 @@ export class OrderDetailService {
         try {
             const orderDetail = await this.orderDetailRepo.create({
                 quantityOrder: orderDetailDto.quantityOrder,
+                priceOrder: orderDetailDto.priceOrder,
                 orderId: orderDetailDto.orderId,
                 productId: orderDetailDto.productId,
             })
@@ -44,6 +45,7 @@ export class OrderDetailService {
               'stores.storeName as storeName',
               'users.avatarUrl as avatarUrl',
               'order_details.quantityOrder as quantityOrder',
+              'order_details.priceOrder as priceOrder',
               'order.orderId as orderId',
               'order.statusOrder as statusOrder',
               'order.totalPrice as totalPrice',

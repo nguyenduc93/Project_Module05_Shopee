@@ -29,6 +29,8 @@ type Product = {
   userId: number;
   productName: string;
   userName: string;
+  price: number;
+  priceOrder: number;
 };
 const OrderDetail = () => {
   const [stores, setStores] = useState<Store[]>([]);
@@ -174,7 +176,10 @@ const OrderDetail = () => {
                   ))}
                 </div>
                 <div className="sum_order">
-                  {formatCurrency(groupedOrders[String(orderId)][0].totalPrice)}
+                  {formatCurrency(
+                    groupedOrders[String(orderId)][0].quantityOrder *
+                      groupedOrders[String(orderId)][0].priceOrder
+                  )}
                 </div>
                 <div className="status_order">
                   {groupedOrders[String(orderId)][0].statusOrder ===

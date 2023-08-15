@@ -16,7 +16,7 @@ export class Orders {
     createDateOrder: Timestamp;
 
     @Column()
-    phoneOrder: number;
+    phoneOrder: string;
 
     @Column()
     totalPrice: number;

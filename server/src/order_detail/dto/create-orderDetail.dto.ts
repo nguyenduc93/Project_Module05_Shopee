@@ -11,4 +11,7 @@ export class CreateOrderDetailDto {
 
     @IsNotEmpty()
     quantityOrder: number;
+
+    @IsNotEmpty()
+    priceOrder: number;
 }

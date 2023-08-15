@@ -118,7 +118,6 @@ const Cart = () => {
       console.log(error);
     }
   };
-  console.log(carts);
   // Sự kiện xử lý thanh toán đơn hàng tạo bảng order và orderDetail
   const handlePay = async () => {
     let totalPrice = calculateTotal();
@@ -146,6 +145,7 @@ const Cart = () => {
           await axios.post(`http://localhost:8000/order-detail`, {
             productId: cart.productId,
             quantityOrder: cart.quantityCart,
+            priceOrder: cart.price,
             orderId: orderIds[i],
           });
         }

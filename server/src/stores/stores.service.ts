@@ -66,6 +66,7 @@ export class StoresService {
         'user.avatarUrl as avatarUrl',
         'user.userName as userName',
         'order_detail.quantityOrder as quantityOrder',
+        'order_detail.priceOrder as priceOrder',
         'order.orderId as orderId',
         'order.statusOrder as statusOrder',
         'order.totalPrice as totalPrice',

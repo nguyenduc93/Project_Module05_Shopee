@@ -27,6 +27,8 @@ type Product = {
   userId: number;
   productName: string;
   storeName: string;
+  price: number;
+  priceOrder: number;
 };
 const ProfileUser = () => {
   const [groupedOrders, setGroupedOrders] = useState<{
@@ -257,24 +259,26 @@ const ProfileUser = () => {
                   <div className="sanpham11111">
                     {groupedOrders[String(orderId)].map((order: Product) => (
                       <div className="sanpham1" key={order.productId}>
-                        <img src={order.imageProduct} alt="" width={70} />
-                        <p>{order.productName}</p>
+                        <div style={{ display: "flex", gap: 10 }}>
+                          <img src={order.imageProduct} alt="" width={70} />
+                          <p>{order.productName}</p>
+                        </div>
+                        <div className="sanpham2">
+                          <div className="thanhtien">
+                            <GppGoodOutlinedIcon
+                              style={{ color: "rgb(238, 77, 45)" }}
+                            />
+                            <p className="price___order1">Thành Tiền:</p>
+                          </div>
+                          <p className="price___order">
+                            {" "}
+                            {formatCurrency(
+                              order.quantityOrder * order.priceOrder
+                            )}
+                          </p>
+                        </div>
                       </div>
                     ))}
-                  </div>
-                  <div className="sanpham2">
-                    <div className="thanhtien">
-                      <GppGoodOutlinedIcon
-                        style={{ color: "rgb(238, 77, 45)" }}
-                      />
-                      <p className="price___order1">Thành Tiền:</p>
-                    </div>
-                    <p className="price___order">
-                      {" "}
-                      {formatCurrency(
-                        groupedOrders[String(orderId)][0].totalPrice
-                      )}
-                    </p>
                   </div>
                 </div>
               </div>

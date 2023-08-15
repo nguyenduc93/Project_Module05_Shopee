@@ -18,7 +18,7 @@ export class CreateOrdersDto {
     storeId: string;
 
     @IsNotEmpty()
-    phoneOrder: number;
+    phoneOrder: string;
 
     @IsNotEmpty()
     totalPrice: number;

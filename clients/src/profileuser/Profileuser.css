@@ -220,7 +220,7 @@
 }
 
 .sanpham{
-    display: flex;
+    /* display: flex; */
     justify-content: space-between;
     margin-top: 20px;
     align-items: center ;
@@ -233,6 +233,7 @@
     width: 100%;
     margin: 10px;
     gap: 8px;
+    justify-content: space-between;
 }
 .sanpham2{
     display: flex;
@@ -270,6 +271,6 @@
     gap: 5px;
 }
 .sanpham11111{
-    flex: 0.8;
+    /* flex: 0.8; */
     align-items: center;
 }

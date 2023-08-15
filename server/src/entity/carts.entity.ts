@@ -17,12 +17,12 @@ export class Carts {
     @Column()
     productId: string;
 
-    @OneToMany(() => Users, (user) => user.cart,{
+    @ManyToOne(() => Users, (user) => user.cart,{
     onDelete: 'CASCADE',
     onUpdate: 'CASCADE',
   })
     @JoinColumn({ name: 'userId' })
-    user: Users
+    user: Users[];
 
     @ManyToOne(() => Products, (product) => product.carts)
     @JoinColumn({ name: 'productId' })

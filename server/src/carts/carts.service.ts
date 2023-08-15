@@ -48,6 +48,7 @@ export class CartsService {
               'products.statusProduct as statusProduct',
               'stores.statusstore as statusstore',
               'stores.storeId as storeId',
+              'stores.storeName as storeName',
               'carts.quantityCart as quantityCart'
             ])
             .leftJoin("carts.product", "products")

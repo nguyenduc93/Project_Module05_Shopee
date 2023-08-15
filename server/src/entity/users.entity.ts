@@ -46,12 +46,12 @@ export class Users {
     @OneToOne(()=>Stores, store=>store.user) 
     store: Stores
 
-    @ManyToOne(()=>Carts, cart=>cart.user) 
-    cart: Carts
+    @OneToMany(()=>Carts, cart=>cart.user) 
+    cart: Carts[];
 
     @OneToMany(() => Reviews, (reviews) => reviews.user)
-    reviews: Reviews[]
+    reviews: Reviews[];
 
     @OneToMany(() => Orders, (order) => order.users)
-    orders: Orders[]
+    orders: Orders[];
 }

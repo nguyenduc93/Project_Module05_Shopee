@@ -3,7 +3,7 @@ import HeaderAdmin from "./HeaderAdmin";
 import NavbarAdmin from "./NavbarAdmin";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import ListAltIcon from "@mui/icons-material/ListAlt";
@@ -28,14 +28,14 @@ const ProductsAdmin = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [search, setSearch] = useState("");
 
-  const flaguserJSON = localStorage.getItem("user");
-  const flaguser = flaguserJSON ? JSON.parse(flaguserJSON) : null;
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (flaguser?.statusUser != 1) {
-      navigate("/");
-    }
-  }, [flaguser]);
+  // const flaguserJSON = localStorage.getItem("user");
+  // const flaguser = flaguserJSON ? JSON.parse(flaguserJSON) : null;
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   if (flaguser?.statusUser != 1) {
+  //     navigate("/");
+  //   }
+  // }, [flaguser]);
 
   // Phân trang
   const shopsPerPage = 2;
